@@ -63,9 +63,7 @@ public class JwtUtils {
 
     // Generate signing key
     private Key key() {
-
-        return Keys.hmacShaKeyFor(
-                Decoders.BASE64.decode(jwtSecret));
+        return Keys.hmacShaKeyFor(jwtSecret.getBytes());
     }
 
     // Extract username from JWT

@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
 
-package service;
+package com.url.shortener.security.service;
 
 import java.util.Collection;
 
