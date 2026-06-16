@@ -2,17 +2,21 @@ package com.url.shortener.security.service;
 
 import java.security.Security;
 
-
-
+import org.hibernate.engine.query.spi.ReturnMetadata;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
 import com.url.shortener.models.User;
 import com.url.shortener.repository.UserRepository;
+
 import lombok.AllArgsConstructor;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
+
 import com.url.shortener.dtos.LoginRequest;
 import com.url.shortener.security.jwt.JwtAuthenticationResponse;
 import com.url.shortener.security.jwt.JwtUtils;
@@ -46,6 +50,10 @@ public class UserService {
         
     }
 
+    public User findByUsername(String name) {
+        return userRepository.findByUsername(name).orElseThrow(
+            () -> new UsernameNotFoundException("User not found with username: " + name));
+    }
 
 
 }

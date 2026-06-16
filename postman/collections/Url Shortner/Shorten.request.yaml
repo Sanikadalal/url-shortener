@@ -1,0 +1,10 @@
+$kind: http-request
+url: http://localhost:8080/api/urls/shorten
+method: POST
+headers:
+  Authorization: Bearer                                         eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYW0iLCJyb2xlcyI6IlJPTEVfVVNFUiIsImlhdCI6MTc4MDM0MjQwNiwiZXhwIjoxNzgwNDI4ODA2fQ.6GR5oa_vBUvo7RUAdMCJy7Cpd1Cpu5sQxbHEFMukXvs
+body:
+  type: json
+  content: '{"originalUrl": "https://example.com"}'
+examples: .resources/Shorten.resources/examples
+order: 4425748916821883

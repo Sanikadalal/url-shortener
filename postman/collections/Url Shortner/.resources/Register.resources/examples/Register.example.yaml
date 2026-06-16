@@ -1,0 +1,31 @@
+$kind: http-example
+request:
+  url: http://localhost:8080/api/auth/public/register
+  method: POST
+  body:
+    type: json
+    content: |-
+      {
+        "username": "gajanansr",
+        "email": "gajanansr@gmail.com",
+        "password": "password123"
+      }
+response:
+  statusCode: 200
+  statusText: ""
+  headers:
+    x-content-type-options: nosniff
+    x-xss-protection: 1; mode=block
+    cache-control: no-cache, no-store, max-age=0, must-revalidate
+    pragma: no-cache
+    expires: "0"
+    x-frame-options: DENY
+    content-type: text/plain;charset=UTF-8
+    content-length: "28"
+    date: Tue, 02 Jun 2026 19:03:31 GMT
+    keep-alive: timeout=60
+    connection: keep-alive
+  body:
+    type: text
+    content: User registered successfully
+order: 1780427014402

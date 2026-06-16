@@ -1,0 +1,12 @@
+$kind: http-request
+name: ramlogin
+url: http://localhost:8080/api/auth/public/login
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "username": "ram",
+      "password": "pass123"
+    }
+order: 4403892137426298

@@ -1,0 +1,13 @@
+$kind: http-request
+url: http://localhost:8080/api/auth/public/register
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "username": "sanika",
+      "email": "sanika@gmail.com",
+      "password": "password123"
+    }
+examples: .resources/Register.resources/examples
+order: 1779174187640

@@ -1,0 +1,33 @@
+$kind: http-example
+request:
+  url: http://localhost:8080/api/auth/public/login
+  method: POST
+  body:
+    type: json
+    content: |-
+      {
+        "username": "sanikad",
+        "password": "password1234"
+      }
+response:
+  statusCode: 200
+  statusText: ""
+  headers:
+    x-content-type-options: nosniff
+    x-xss-protection: 1; mode=block
+    cache-control: no-cache, no-store, max-age=0, must-revalidate
+    pragma: no-cache
+    expires: "0"
+    x-frame-options: DENY
+    content-type: application/json
+    transfer-encoding: chunked
+    date: Tue, 02 Jun 2026 19:04:34 GMT
+    keep-alive: timeout=60
+    connection: keep-alive
+  body:
+    type: json
+    content: |-
+      {
+        "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYW5pa2FkIiwicm9sZXMiOiJST0xFX1VTRVIiLCJpYXQiOjE3ODA0MjcwNzQsImV4cCI6MTc4MDUxMzQ3NH0.5w_Bsm8N2kPnaJFl6chBtxP1RgojSx-yk9CaYEWQNGU"
+      }
+order: 650370240421760

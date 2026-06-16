@@ -1,0 +1,37 @@
+$kind: http-example
+request:
+  url: http://localhost:8080/api/urls/shorten
+  method: POST
+  headers:
+    Authorization: Bearer                                         eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYW0iLCJyb2xlcyI6IlJPTEVfVVNFUiIsImlhdCI6MTc4MDM0MjQwNiwiZXhwIjoxNzgwNDI4ODA2fQ.6GR5oa_vBUvo7RUAdMCJy7Cpd1Cpu5sQxbHEFMukXvs
+  body:
+    type: json
+    content: '{"originalUrl": "https://example.com"}'
+response:
+  statusCode: 200
+  statusText: ""
+  headers:
+    set-cookie: JSESSIONID=2706FCA21FD3687367583A7DDF7E0C38; Path=/; HttpOnly
+    x-content-type-options: nosniff
+    x-xss-protection: 1; mode=block
+    cache-control: no-cache, no-store, max-age=0, must-revalidate
+    pragma: no-cache
+    expires: "0"
+    x-frame-options: DENY
+    content-type: application/json
+    transfer-encoding: chunked
+    date: Tue, 02 Jun 2026 18:51:50 GMT
+    keep-alive: timeout=60
+    connection: keep-alive
+  body:
+    type: json
+    content: |-
+      {
+        "id": 1,
+        "originalUrl": "https://example.com",
+        "shortUrl": "HaEZUZOs",
+        "clickCount": 0,
+        "createdDate": null,
+        "username": "ram"
+      }
+order: 1780426959054

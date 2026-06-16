@@ -1,0 +1,12 @@
+$kind: http-request
+url: http://localhost:8080/api/auth/public/login
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "username": "sanikad",
+      "password": "password1234"
+    }
+examples: .resources/Login.resources/examples
+order: 4256675625532018

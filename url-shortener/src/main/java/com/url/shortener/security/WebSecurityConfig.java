@@ -56,7 +56,8 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http)
             throws Exception {
 
-        http.csrf(AbstractHttpConfigurer::disable)
+        http.cors().and()
+            .csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(auth -> auth
                     .antMatchers("/api/auth/**").permitAll()
                     .antMatchers("/api/urls/**").permitAll()

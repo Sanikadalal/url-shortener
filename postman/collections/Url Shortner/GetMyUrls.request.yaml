@@ -1,0 +1,8 @@
+$kind: http-request
+name: GetMyUrls
+url: http://localhost:8080/api/urls/myurls
+method: GET
+headers:
+  Authorization: Bearer                                         eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYW0iLCJyb2xlcyI6IlJPTEVfVVNFUiIsImlhdCI6MTc4MDM0MjQwNiwiZXhwIjoxNzgwNDI4ODA2fQ.6GR5oa_vBUvo7RUAdMCJy7Cpd1Cpu5sQxbHEFMukXvs
+examples: .resources/GetMyUrls.resources/examples
+order: 4467669327379846

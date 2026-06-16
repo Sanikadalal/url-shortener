@@ -1,0 +1,36 @@
+$kind: http-example
+name: Shorten
+request:
+  url: http://localhost:8080/api/urls/shorten
+  method: POST
+  headers:
+    Authorization: Bearer                                         eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYW0iLCJyb2xlcyI6IlJPTEVfVVNFUiIsImlhdCI6MTc4MDM0MjQwNiwiZXhwIjoxNzgwNDI4ODA2fQ.6GR5oa_vBUvo7RUAdMCJy7Cpd1Cpu5sQxbHEFMukXvs
+  body:
+    type: json
+    content: '{"originalUrl": "https://examplemaybec.com"}'
+response:
+  statusCode: 403
+  statusText: ""
+  headers:
+    set-cookie: JSESSIONID=9822455E05D985BF1DE330281974D099; Path=/; HttpOnly
+    x-content-type-options: nosniff
+    x-xss-protection: 1; mode=block
+    cache-control: no-cache, no-store, max-age=0, must-revalidate
+    pragma: no-cache
+    expires: "0"
+    x-frame-options: DENY
+    content-type: application/json
+    transfer-encoding: chunked
+    date: Wed, 10 Jun 2026 12:02:44 GMT
+    keep-alive: timeout=60
+    connection: keep-alive
+  body:
+    type: json
+    content: |-
+      {
+        "timestamp": "2026-06-10T12:02:44.857+00:00",
+        "status": 403,
+        "error": "Forbidden",
+        "path": "/api/urls/shorten"
+      }
+order: 2528919489600594

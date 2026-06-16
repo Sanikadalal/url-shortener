@@ -1,0 +1,12 @@
+$kind: http-request
+url: http://localhost:8080/api/auth/public/register
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "username": "ram",
+      "email": "ram@gmail.com",
+      "password": "pass123"
+    }
+order: 4296360022755402
