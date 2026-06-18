@@ -5,15 +5,15 @@ const AboutPage = () => {
     <div className="lg:px-14 sm:px-8 px-5 min-h-[calc(100vh-64px)] pt-2">
       <div className="bg-white w-full sm:py-10 py-8  ">
         <h1 className="sm:text-4xl text-slate-800 text-3xl font-bold italic  mb-3">
-          About Linklytics
+          About Linkora
         </h1>
         <p className="text-gray-700 text-sm  mb-8 xl:w-[60%] lg:w-[70%] sm:w-[80%] w-full ">
-          Linklytics simplifies URL shortening for efficient sharing. Easily
-          generate, manage, and track your shortened links. Linklytics simplifies
+          Linkora simplifies URL shortening for efficient sharing. Easily
+          generate, manage, and track your shortened links. Linkora simplifies
           URL shortening for efficient sharing. Easily generate, manage, and
-          track your shortened links. Linklytics simplifies URL shortening for
+          track your shortened links. Linkora simplifies URL shortening for
           efficient sharing. Easily generate, manage, and track your shortened
-          links. Linklytics simplifies URL shortening for efficient sharing.
+          links. Linkora simplifies URL shortening for efficient sharing.
           Easily generate, manage, and track your shortened links.
         </p>
         <div className="space-y-5 xl:w-[60%] lg:w-[70%] sm:w-[80%] w-full ">

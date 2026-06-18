@@ -1,9 +1,9 @@
 $kind: http-example
 request:
-  url: http://localhost:8080/api/urls/shorten
-  method: POST
+  url: http://localhost:8080/api/urls/myurls
+  method: GET
   headers:
-    Authorization: Bearer                                         eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYW0iLCJyb2xlcyI6IlJPTEVfVVNFUiIsImlhdCI6MTc4MDM0MjQwNiwiZXhwIjoxNzgwNDI4ODA2fQ.6GR5oa_vBUvo7RUAdMCJy7Cpd1Cpu5sQxbHEFMukXvs
+    Authorization: Bearer                                         {{supabase_service_role_api_key_1dfx}}
   body:
     type: json
     content: '{"originalUrl": "https://example.com"}'

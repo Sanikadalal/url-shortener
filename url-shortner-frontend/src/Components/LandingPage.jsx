@@ -6,7 +6,7 @@ import Card from "./Card";
 import { useStoreContext } from "../contextApi/ContextApi";
 
 let desc =
-  "Generate short, memorable links with ease using Linklytics’s intuitive interface. Share URLs effortlessly across platforms. Optimize your sharing strategy with Linklytics. Track clicks and manage your links seamlessly to enhance your online presence. Generate short, memorable links with ease using Linklytics’s intuitive interface. Share URLs effortlessly across platforms.";
+  "Generate short, memorable links with ease using Linkora's intuitive interface. Share URLs effortlessly across platforms. Optimize your sharing strategy with Linkora. Track clicks and manage your links seamlessly to enhance your online presence. Generate short, memorable links with ease using Linkora's intuitive interface. Share URLs effortlessly across platforms.";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -14,7 +14,11 @@ const LandingPage = () => {
   console.log("TOKEN FROM LANDING PAGE: " + token);
 
   const dashBoardNavigateHandler = () => {
-
+    if (token) {
+      navigate("/dashboard");
+    } else {
+      navigate("/login");
+    }
   };
   return (
     <div className="min-h-[calc(100vh-64px)]  lg:px-14 sm:px-8 px-4">
@@ -30,13 +34,13 @@ const LandingPage = () => {
             transition={{ duration: 0.8 }}
             className="font-bold font-roboto text-slate-800 md:text-5xl sm:text-4xl text-3xl   md:leading-[55px] sm:leading-[45px] leading-10 lg:w-full md:w-[70%] w-full"
           >
-            Linklytics Simplifies URL Shortening For Efficient Sharing.
+            Linkora Simplifies URL Shortening For Efficient Sharing.
           </motion.h1>
           <p className="text-slate-700 text-sm my-5">
-            Linklytics streamlines the process of URL shortening, making sharing
+            Linkora streamlines the process of URL shortening, making sharing
             links effortless and efficient. With its user-friendly interface,
-            Linklytics allows you to generate concise, easy-to-share URLs in
-            seconds. Simplify your sharing experience with Linklytics today.
+            Linkora allows you to generate concise, easy-to-share URLs in
+            seconds. Simplify your sharing experience with Linkora today.
           </p>
           <div className="flex items-center gap-3">
             <motion.button
