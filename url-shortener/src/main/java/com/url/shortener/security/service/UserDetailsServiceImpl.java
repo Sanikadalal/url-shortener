@@ -2,7 +2,7 @@ package com.url.shortener.security.service;
 
 import com.url.shortener.models.User;
 import com.url.shortener.repository.UserRepository;
-import javax.transaction.Transactional;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

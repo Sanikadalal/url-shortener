@@ -1,27 +1,55 @@
-import React from 'react'
-import { FaExclamationTriangle } from 'react-icons/fa'
-import { useNavigate } from 'react-router-dom'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { AlertTriangle, Home, ArrowLeft } from "lucide-react";
+import { Button } from "./ui/button";
 
 const ErrorPage = ({ message }) => {
-    const navigate = useNavigate();
-  return (
-    <div className="flex flex-col items-center justify-center min-h-[calc(100vh-64px)] bg-gray-100 p-6">
-        <FaExclamationTriangle className='text-6xl text-red-500 mb-4' />
-        <h1 className='text-3xl font-bold mb-2 text-gray-800'>
-            Oops! Something went wrong.
-        </h1>
-        <p className='text-gray-600 mb-6 text-center'>
-            {message ? message : "An unexpected error has occured"}
-        </p>
-        <button onClick={() => {
-            navigate("/");
-        }}
-        className='px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition'
-        >
-            Go back to home
-        </button>
-    </div>
-  )
-}
+  const navigate = useNavigate();
 
-export default ErrorPage
+  return (
+    <div className="min-h-screen bg-surface flex items-center justify-center px-4 relative overflow-hidden">
+      <div className="fixed inset-0 grid-bg opacity-30 pointer-events-none" />
+      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-600/10 rounded-full blur-3xl pointer-events-none" />
+
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="relative text-center max-w-md"
+      >
+        <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-red-500/20 to-orange-500/20 border border-red-500/20 flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-red-500/10">
+          <AlertTriangle className="w-10 h-10 text-red-400" />
+        </div>
+
+        <h1 className="text-4xl font-black text-white mb-3">
+          Oops!
+        </h1>
+        <p className="text-white/40 text-lg mb-8">
+          {message || "An unexpected error has occurred."}
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <Button
+            variant="ghost"
+            onClick={() => navigate(-1)}
+            className="text-white/60"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Go Back
+          </Button>
+          <Button
+            variant="gradient"
+            onClick={() => navigate("/")}
+            className="shadow-lg shadow-violet-500/25"
+          >
+            <Home className="w-4 h-4" />
+            Go Home
+          </Button>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+export default ErrorPage;

@@ -36,6 +36,7 @@ public class UrlMappingService {
         urlMapping.setOriginalUrl(originalUrl);
         urlMapping.setShortUrl(shortUrl);
         urlMapping.setUser(user);
+        urlMapping.setCreatedDate(LocalDate.now());
 
         UrlMapping savedUrlMapping =
                 urlMappingRepository.save(urlMapping);
@@ -99,7 +100,7 @@ public class UrlMappingService {
                     .collect(Collectors.toList());
 
          }
-         return null;
+         return java.util.Collections.emptyList();
         }
 
 

@@ -10,40 +10,36 @@ import {
   Filler,
 } from "chart.js";
 
-ChartJS.register(
-  BarElement,
-  Tooltip,
-  CategoryScale,
-  LinearScale,
-  Legend,
-  Filler
-);
+ChartJS.register(BarElement, Tooltip, CategoryScale, LinearScale, Legend, Filler);
 
 const Graph = ({ graphData }) => {
-  const labels = graphData?.map((item, i) => `${item.clickDate}`);
-  const userPerDaya = graphData?.map((item) => item.count);
+  const labels = graphData?.map((item) => item.clickDate);
+  const userPerDay = graphData?.map((item) => item.count);
 
   const data = {
     labels:
-     graphData.length > 0
+      graphData.length > 0
         ? labels
         : ["", "", "", "", "", "", "", "", "", "", "", "", "", ""],
     datasets: [
       {
-        label: "Total Clicks",
+        label: "Clicks",
         data:
-         graphData.length > 0
-            ? userPerDaya
+          graphData.length > 0
+            ? userPerDay
             : [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1],
         backgroundColor:
-         graphData.length > 0 ? "#3b82f6" : "rgba(54, 162, 235, 0.1)",
-        borderColor: "#1D2327",
-        pointBorderColor: "red",
-        fill: true,
-        tension: 0.4,
-        barThickness: 20,
-        categoryPercentage: 1.5,
-        barPercentage: 1.5,
+          graphData.length > 0
+            ? "rgba(139, 92, 246, 0.7)"
+            : "rgba(139, 92, 246, 0.08)",
+        borderColor:
+          graphData.length > 0
+            ? "rgba(139, 92, 246, 1)"
+            : "rgba(139, 92, 246, 0.1)",
+        borderWidth: 1,
+        borderRadius: 6,
+        borderSkipped: false,
+        barThickness: 16,
       },
     ],
   };
@@ -53,52 +49,53 @@ const Graph = ({ graphData }) => {
     responsive: true,
     plugins: {
       legend: {
-        display: true,
+        display: false,
+      },
+      tooltip: {
+        backgroundColor: "rgba(15, 15, 26, 0.95)",
+        borderColor: "rgba(139, 92, 246, 0.3)",
+        borderWidth: 1,
+        titleColor: "rgba(255,255,255,0.9)",
+        bodyColor: "rgba(255,255,255,0.6)",
+        padding: 10,
+        cornerRadius: 8,
       },
     },
     scales: {
       y: {
         beginAtZero: true,
-        ticks: {
-          // stepSize: 1,
-          callback: function (value) {
-            if (Number.isInteger(value)) {
-              return value.toString();
-            }
-            return "";
-          },
+        grid: {
+          color: "rgba(255,255,255,0.05)",
         },
-        title: {
-          display: true,
-          text: "Number Of Clicks",
-          font: {
-            family: "Arial",
-            size: 16,
-            weight: "bold",
-            color: "#FF0000",
+        border: {
+          display: false,
+        },
+        ticks: {
+          color: "rgba(255,255,255,0.3)",
+          font: { size: 11, family: "Inter" },
+          callback: function (value) {
+            if (Number.isInteger(value)) return value;
+            return "";
           },
         },
       },
       x: {
-        beginAtZero: true,
-        // ticks: {
-        //   stepSize: 1,
-        // },
-        title: {
-          display: true,
-          text: "Date",
-          font: {
-            family: "Arial",
-            size: 16,
-            weight: "bold",
-            color: "#FF0000",
-          },
+        grid: {
+          display: false,
+        },
+        border: {
+          display: false,
+        },
+        ticks: {
+          color: "rgba(255,255,255,0.3)",
+          font: { size: 11, family: "Inter" },
+          maxRotation: 45,
         },
       },
     },
   };
 
-  return <Bar className=" w-full" data={data} options={options}></Bar>;
+  return <Bar className="w-full" data={data} options={options} />;
 };
 
 export default Graph;

@@ -1,8 +1,5 @@
 package com.url.shortener.security.service;
 
-import java.security.Security;
-
-import org.hibernate.engine.query.spi.ReturnMetadata;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;

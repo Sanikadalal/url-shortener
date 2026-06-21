@@ -1,0 +1,40 @@
+services:
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: linkora-db
+    environment:
+      POSTGRES_DB: url-shortener
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d url-shortener"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./url-shortener
+      dockerfile: Dockerfile
+    container_name: linkora-backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/url-shortener
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      JWT_SECRET: mysupersecretkeyforjwtauthentication2026springbootproject
+      JWT_EXPIRATION_MS: 86400000
+      FRONTEND_URL: http://localhost:5173
+    ports:
+      - "8080:8080"
+    restart: on-failure
+
+volumes:
+  postgres_data:

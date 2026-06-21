@@ -12,6 +12,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.url.shortener.security.jwt.JwtAuthenticationFilter;
 import com.url.shortener.security.service.UserDetailsServiceImpl;
 
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -56,12 +57,12 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http)
             throws Exception {
 
-        http.cors().and()
+        http.cors(Customizer.withDefaults())
             .csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(auth -> auth
-                    .antMatchers("/api/auth/**").permitAll()
-                    .antMatchers("/api/urls/**").permitAll()
-                    .antMatchers("/{shortUrl}").permitAll()
+                    .requestMatchers("/api/auth/**").permitAll()
+                    .requestMatchers("/api/urls/**").permitAll()
+                    .requestMatchers("/{shortUrl}").permitAll()
                     .anyRequest().authenticated()
             );
 
